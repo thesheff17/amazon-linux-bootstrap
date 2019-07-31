@@ -61,7 +61,7 @@ yum install -y \
 wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 tar -xf Python-3.7.4.tgz
 cd Python-3.7.4/
-./configure --prefix=/root/python37 --enable-shared --enable-optimizations
+./configure --prefix=/opt/python37 --enable-shared --enable-optimizations
 make
 make altinstall
 
@@ -74,7 +74,7 @@ echo "if [ ! -f /usr/local/bin/pip3 ]; then" >>  /root/.bashrc
 echo "ln -s /opt/python37/bin/pip3.7 /usr/local/bin/pip3" >>  /root/.bashrc 
 echo "fi" >> /root/.bashrc
 
-echo "export LD_LIBRARY_PATH=/root/python37/lib" >> /root/.bashrc
+echo "export LD_LIBRARY_PATH=/opt/python37/lib" >> /root/.bashrc
 
 # pip3 install
 export LD_LIBRARY_PATH=/opt/python37/lib && /opt/python37/bin/pip3.7 install awscli
