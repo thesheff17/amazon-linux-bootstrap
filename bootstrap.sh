@@ -24,6 +24,11 @@
 
 # this script will bootstrap an amazon linux box
 
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
 SECONDS=0
 
 # updates
