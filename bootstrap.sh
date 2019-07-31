@@ -42,6 +42,7 @@ yum install -y \
     gcc \
     gdbm-devel \
     gzip \
+    java-1.8.0-openjdk.x86_64 \
     libffi-devel \
     make \
     ncurses-devel \
