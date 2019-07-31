@@ -24,6 +24,8 @@
 
 # this script will bootstrap an amazon linux box
 
+set -ex
+
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root"
    exit 1
@@ -39,16 +41,11 @@ yum install -y \
     fail2ban \
     gcc \
     gdbm-devel \
-    git-core.x86_64 \
     gzip \
-    java-1.8.0-openjdk.x86_64 \
     libffi-devel \
     make \
     ncurses-devel \
     openssl-devel \
-    python3-devel.x86_64 \
-    python3-libs.x86_64 \
-    python3.x86_64 \
     readline-devel \
     sqlite-devel \
     tar.x86_64 \
@@ -59,8 +56,27 @@ yum install -y \
     xz-devel \
     zlib-devel 
 
-# pip 
-pip3 install awscli
+# install python
+wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+tar -xf Python-3.7.4.tgz
+cd Python-3.7.4/
+./configure --prefix=/root/python37 --enable-shared --enable-optimizations
+make -j4
+make altinstall
+
+echo "export LD_LIBRARY_PATH=/opt/python37/lib" >> /root/.bashrc 
+echo "export PATH=/opt/python37/bin:$PATH" >> /root/.bashrc
+echo "if [ ! -f /usr/local/bin/python3 ]; then" >>  /root/.bashrc 
+echo "ln -s /opt/python37/bin/python3.7 /usr/local/bin/python3" >>  /root/.bashrc 
+echo "fi" >> /root/.bashrc 
+echo "if [ ! -f /usr/local/bin/pip3 ]; then" >>  /root/.bashrc 
+echo "ln -s /opt/python37/bin/pip3.7 /usr/local/bin/pip3" >>  /root/.bashrc 
+echo "fi" >> /root/.bashrc
+
+echo "export LD_LIBRARY_PATH=/root/python37/lib" >> /root/.bashrc
+
+# pip3 install
+export LD_LIBRARY_PATH=/opt/python37/lib && /opt/python37/bin/pip3.7 install awscli
 
 # time elaspsed 
 duration=$SECONDS
