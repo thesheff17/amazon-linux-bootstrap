@@ -54,11 +54,11 @@ yum install -y \
 # install python
 wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 tar -xf Python-3.7.4.tgz
-mkdir python37
 cd Python-3.7.4/
 ./configure --prefix=/home/ec2-user/python37 --enable-shared --enable-optimizations
 make
 make install
+echo "export LD_LIBRARY_PATH=/home/ec2-user/python37/lib" >> /home/ec2-user/.bashrc
 
 # time elaspsed 
 duration=$SECONDS
