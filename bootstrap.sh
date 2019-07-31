@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (c) 2015, Dan Sheffner Digital Imaging Software Solutions, INC
+# Copyright (c) 2019, Dan Sheffner Digital Imaging Software Solutions, INC
 # All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
@@ -62,7 +62,7 @@ wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 tar -xf Python-3.7.4.tgz
 cd Python-3.7.4/
 ./configure --prefix=/root/python37 --enable-shared --enable-optimizations
-make -j4
+make
 make altinstall
 
 echo "export LD_LIBRARY_PATH=/opt/python37/lib" >> /root/.bashrc 
