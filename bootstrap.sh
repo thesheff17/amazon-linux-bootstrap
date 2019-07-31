@@ -24,6 +24,8 @@
 
 # this script will bootstrap an amazon linux box
 
+set -ex
+
 SECONDS=0
 
 # updates
