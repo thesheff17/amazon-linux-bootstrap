@@ -24,8 +24,6 @@
 
 # this script will bootstrap an amazon linux box
 
-set -ex
-
 SECONDS=0
 
 # updates
@@ -36,11 +34,16 @@ yum install -y \
     fail2ban \
     gcc \
     gdbm-devel \
+    git-core.x86_64 \
     gzip \
+    java-1.8.0-openjdk.x86_64 \
     libffi-devel \
     make \
     ncurses-devel \
     openssl-devel \
+    python3-devel.x86_64 \
+    python3-libs.x86_64 \
+    python3.x86_64 \
     readline-devel \
     sqlite-devel \
     tar.x86_64 \
@@ -51,14 +54,8 @@ yum install -y \
     xz-devel \
     zlib-devel 
 
-# install python
-wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
-tar -xf Python-3.7.4.tgz
-cd Python-3.7.4/
-./configure --prefix=/home/ec2-user/python37 --enable-shared --enable-optimizations
-make
-make install
-echo "export LD_LIBRARY_PATH=/home/ec2-user/python37/lib" >> /home/ec2-user/.bashrc
+# pip 
+pip3 install awscli
 
 # time elaspsed 
 duration=$SECONDS
