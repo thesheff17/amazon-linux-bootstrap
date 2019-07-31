@@ -1,6 +1,6 @@
 FROM amazonlinux
 
-# docker build . -t dsheffner/amazonlinuxtest:latest
+# time docker build . -t dsheffner/amazonlinuxtest:latest
 
 COPY ./bootstrap.sh /root/bootstrap.sh
 
