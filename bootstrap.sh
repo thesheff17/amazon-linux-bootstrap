@@ -27,7 +27,7 @@
 SECONDS=0
 
 # updates
-yum update
+yum update -y
 yum upgrade -y
 yum install -y \
     bzip2-devel \
