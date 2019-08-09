@@ -38,17 +38,23 @@ yum update -y
 yum upgrade -y
 yum install -y \
     bzip2-devel \
+    docker.x86_64 \
     fail2ban \
     gcc \
     gdbm-devel \
+    golang.x86_64 \
     gzip \
     java-1.8.0-openjdk.x86_64 \
     libffi-devel \
     make \
     ncurses-devel \
     openssl-devel \
+    python36-devel.x86_64 \
+    python36-libs.x86_64 \
+    python36.x86_64 \
     readline-devel \
     sqlite-devel \
+    sudo.x86_64 \
     tar.x86_64 \
     tk-devel \
     tmux \
@@ -57,27 +63,18 @@ yum install -y \
     xz-devel \
     zlib-devel 
 
-# install python
-wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
-tar -xf Python-3.7.4.tgz
-cd Python-3.7.4/
-./configure --prefix=/opt/python37 --enable-shared --enable-optimizations
-make
-make altinstall
+# adding ec2-user to docker user
+usermod -aG docker ec2-user
 
-echo "export LD_LIBRARY_PATH=/opt/python37/lib" >> /root/.bashrc 
-echo "export PATH=/opt/python37/bin:$PATH" >> /root/.bashrc
-echo "if [ ! -f /usr/local/bin/python3 ]; then" >>  /root/.bashrc 
-echo "ln -s /opt/python37/bin/python3.7 /usr/local/bin/python3" >>  /root/.bashrc 
-echo "fi" >> /root/.bashrc 
-echo "if [ ! -f /usr/local/bin/pip3 ]; then" >>  /root/.bashrc 
-echo "ln -s /opt/python37/bin/pip3.7 /usr/local/bin/pip3" >>  /root/.bashrc 
-echo "fi" >> /root/.bashrc
+# start docker
+service docker start
 
-echo "export LD_LIBRARY_PATH=/opt/python37/lib" >> /root/.bashrc
-
-# pip3 install
-export LD_LIBRARY_PATH=/opt/python37/lib && /opt/python37/bin/pip3.7 install awscli
+# pull docker basic docker images
+docker pull amazonlinux
+docker pull ubuntu
+docker pull ubuntu:18.04
+docker pull alpine
+docker pull debian
 
 # time elaspsed 
 duration=$SECONDS
