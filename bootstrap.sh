@@ -61,7 +61,7 @@ yum install -y \
     uuid-devel \
     wget \
     xz-devel \
-    zlib-devel 
+    zlib-devel
 
 # adding ec2-user to docker user
 usermod -aG docker ec2-user
@@ -75,7 +75,8 @@ docker pull ubuntu
 docker pull ubuntu:18.04
 docker pull alpine
 docker pull debian
+docker pull python:3.7.4-buster
 
-# time elaspsed 
+# time elaspsed
 duration=$SECONDS
 echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
