@@ -48,7 +48,7 @@ if __name__ == "__main__":
 
     for each in services:
         sb.call(["service", each, "start"])
-        sb.calli(["chkconfig", each, "on"])
+        sb.call(["chkconfig", each, "on"])
 
     for each in docker:
         sb.call(["docker", "pull", each])
