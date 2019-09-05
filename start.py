@@ -28,13 +28,15 @@ import subprocess as sb
 
 response = requests.get("https://summer-scene-61e0.thesheff17.workers.dev/")
 json_response = response.json()
+
 docker = json_response['docker']
 services = json_response['services']
 commands = json_response['commands']
+files = json_response['files']
 apt = json_response['apt']
+
 apt2 = ["yum", "install", "-y"]
 apt = apt2 + apt
-
 
 if __name__ == "__main__":
 
@@ -52,5 +54,10 @@ if __name__ == "__main__":
 
     for each in docker:
         sb.call(["docker", "pull", each])
+
+    for key, value in files.items():
+        sb.call(["wget", key], cwd=value)
+
+    sb.call(["chmod", "+x", "/root/*.sh", "/root/*py"])
 
     print("start.py completed")
