@@ -58,6 +58,6 @@ if __name__ == "__main__":
     for key, value in files.items():
         sb.call(["wget", key], cwd=value)
 
-    sb.call(["chmod", "+x", "/root/*.sh", "/root/*py"])
+    sb.call("chmod +x /root/*.sh /root/*py", shell=True)
 
     print("start.py completed")
