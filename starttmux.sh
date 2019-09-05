@@ -8,10 +8,10 @@ export TERM=screen-256color
 tmux -2 new-session -d -s $SESSION
 
 # split window at bottom 20% good with macbook pro
-tmux split-window -v -p 15
+tmux split-window -v -p 45
 
 # load up top in 75% right of bottom pane
-tmux split-window -h -p 15
+tmux split-window -h -p 45
 
 # I like to use htop
 tmux send-keys "nice htop" C-m
