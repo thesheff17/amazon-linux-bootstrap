@@ -41,7 +41,7 @@ if __name__ == "__main__":
     print ("start.py started...")
     sb.call(apt)
 
-   for each in commands:
+    for each in commands:
         # this is very dangerous make sure you know what is being
         # called here from your json object.
         sb.call(each, shell=True)
