@@ -36,47 +36,13 @@ SECONDS=0
 # updates
 yum update -y
 yum upgrade -y
-yum install -y \
-    bzip2-devel \
-    docker.x86_64 \
-    fail2ban \
-    gcc \
-    gdbm-devel \
-    golang.x86_64 \
-    gzip \
-    java-1.8.0-openjdk.x86_64 \
-    libffi-devel \
-    make \
-    ncurses-devel \
-    openssl-devel \
-    python36-devel.x86_64 \
-    python36-libs.x86_64 \
-    python36.x86_64 \
-    readline-devel \
-    sqlite-devel \
-    sudo.x86_64 \
-    tar.x86_64 \
-    tk-devel \
-    tmux \
-    uuid-devel \
-    wget \
-    xz-devel \
-    zlib-devel
+yum install -y python36.x86_64 
+pip-3.6 install requests
 
-# adding ec2-user to docker user
-usermod -aG docker ec2-user
+cd /root/
+curl https://raw.githubusercontent.com/thesheff17/amazon-linux-bootstrap/master/start.py -O
+python3 start.py
 
-# start docker
-service docker start
-
-# pull docker basic docker images
-docker pull amazonlinux
-docker pull ubuntu
-docker pull ubuntu:18.04
-docker pull alpine
-docker pull debian
-docker pull python:3.7.4-buster
-
-# time elaspsed
+# time elaspsed 
 duration=$SECONDS
 echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed."
