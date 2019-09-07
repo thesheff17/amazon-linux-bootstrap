@@ -34,7 +34,7 @@ services = json_response['services']
 createdirectory = json_response['createdirectory']
 commands = json_response['commands']
 files = json_response['files']
-gitrepos = json_reponse['gitrepos']
+gitrepos = json_response['gitrepos']
 apt = json_response['apt']
 
 apt2 = ["yum", "install", "-y"]
