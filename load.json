@@ -1,5 +1,72 @@
 {
-    "fruit": "Apple",
-    "size": "Large",
-    "color": "Red"
+    "apt": [
+        "bzip2-devel",
+        "docker.x86_64",
+        "fail2ban",
+        "gcc",
+        "gdbm-devel",
+        "golang.x86_64",
+        "gzip",
+        "htop",
+        "java-1.8.0-openjdk.x86_64",
+        "libffi-devel",
+        "make",
+        "mysql57-server.x86_64",
+        "ncurses-devel",
+        "openssl-devel",
+        "python36-devel.x86_64",
+        "python36-libs.x86_64",
+        "python36.x86_64",
+        "readline-devel",
+        "sqlite-devel",
+        "sudo.x86_64",
+        "tar.x86_64",
+        "tk-devel",
+        "tmux",
+        "uuid-devel",
+        "wget",
+        "xz-devel",
+        "zlib-devel"
+    ],
+    "createdirectory": [
+        "/root/.vim/autoload",
+        "/home/ec2-user/.vim/autoload",
+        "/root/.vim/bundle",
+        "/home/ec2-user/.vim/bundle"
+    ],
+    "commands": [
+        "usermod -aG docker ec2-user",
+        "git clone https://github.com/fatih/vim-go.git /root/.vim/bundle/vim-go",
+        "git clone https://github.com/fatih/vim-go.git /home/ec2-user/.vim/bundle/vim-go"
+    ],
+    "services": [
+        "fail2ban",
+        "docker",
+        "mysqld"
+    ],
+   "files": {
+        "https://raw.githubusercontent.com/thesheff17/amazon-linux-bootstrap/master/starttmux.sh": "/root/",
+        "https://tpo.pe/pathogen.vim": "/home/ec2-user/.vim/autoload/"
+    },
+    "docker": [
+        "alpine:latest",
+        "amazonlinux:latest",
+        "debian:latest",
+        "dockerbase/etcd:latest",
+        "golang:latest",
+        "jenkins:latest",
+        "memcached:latest",
+        "mikesplain/openvas:latest",
+        "nginx:latest",
+        "httpd:latest",
+        "openjdk:latest",
+        "python:latest",
+        "python:3.7.4-buster",
+        "python:3.8.0b4-buster",
+        "redis:latest",
+        "redis:5",
+        "tomcat:jdk11-corretto",
+        "ubuntu:18.04",
+        "ubuntu:latest"
+    ]
 }
