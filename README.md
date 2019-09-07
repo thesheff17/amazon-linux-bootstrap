@@ -21,8 +21,8 @@ aws ec2 run-instances --image-id ami-0080e4c5bc078760e --count 1 --instance-type
 
 ```
 bootstrap.sh - bash script that runs updates, installs python3, and pip installs request module
-start.py     - a super simple script wrapped around a json object running on cloudflare workers
-               here: https://summer-scene-61e0.thesheff17.workers.dev/
+load.json    - simple json object that controls what this script does
+start.py     - a super simple script wrapped around load.json
 mapping.json - sets the / volume of the container to 100GB
 starttmux.sh - a decent split of tmux panes
 ```
