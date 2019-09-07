@@ -25,6 +25,7 @@
 import json
 import requests
 import subprocess as sb
+import os
 
 response = requests.get("https://summer-scene-61e0.thesheff17.workers.dev/")
 json_response = response.json()
