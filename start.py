@@ -31,8 +31,10 @@ json_response = response.json()
 
 docker = json_response['docker']
 services = json_response['services']
+createdirectory = json_response['createdirectory']
 commands = json_response['commands']
 files = json_response['files']
+gitrepos = json_reponse['gitrepos']
 apt = json_response['apt']
 
 apt2 = ["yum", "install", "-y"]
@@ -51,6 +53,13 @@ if __name__ == "__main__":
     for each in services:
         sb.call(["service", each, "start"])
         sb.call(["chkconfig", each, "on"])
+
+    for each in createdirectory:
+        if not os.path.exists(each):
+            os.makedirs(each)
+    
+    for key, value in gitrepos.items():
+        sb.call("cd " + value + " && git clone " + key, shell=True)
 
     for each in docker:
         sb.call(["docker", "pull", each])
