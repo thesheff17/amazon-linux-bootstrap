@@ -46,6 +46,8 @@
     ],
    "files": {
         "https://raw.githubusercontent.com/thesheff17/amazon-linux-bootstrap/master/starttmux.sh": "/root/",
+        "https://raw.githubusercontent.com/thesheff17/amazon-linux-bootstrap/master/starttmux.sh": "/home/ec2-user/",
+        "https://tpo.pe/pathogen.vim": "/root/.vim/autoload/",
         "https://tpo.pe/pathogen.vim": "/home/ec2-user/.vim/autoload/"
     },
     "docker": [
