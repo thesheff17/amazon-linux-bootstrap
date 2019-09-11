@@ -1,4 +1,4 @@
-FROM thesheff17/amazon-linux-bootstrap
+FROM thesheff17/amazon-linux-base
 
 # time docker build . -t dsheffner/amazonlinuxtest:latest
 
