@@ -36,7 +36,8 @@ SECONDS=0
 # updates
 yum update -y
 yum upgrade -y
-yum install -y python36.x86_64 
+# for the next version of amazon linux: python3-pip.noarch
+yum install -y python3.x86_64 python36-pip.noarch
 pip-3.6 install requests
 
 cd /root/

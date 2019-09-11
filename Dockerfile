@@ -1,9 +1,9 @@
-FROM amazonlinux
+FROM thesheff17/amazon-linux-bootstrap
 
 # time docker build . -t dsheffner/amazonlinuxtest:latest
 
-COPY ./bootstrap.sh /root/bootstrap.sh
+COPY ./bootstrap_nodocker.sh /root/bootstrap_nodocker.sh
 
-RUN /root/bootstrap.sh
+RUN /root/bootstrap_nodocker.sh
 
 CMD ["/bin/bash"]
